@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import Button from "./components/Button";
 import "./css/style.css";
 
@@ -28,7 +27,7 @@ class App extends Component {
         (this.state.current === "0" && symbol !== ".") ||
         this.state.nextIsReset
       ) {
-        this.setState({ current: symbol , nextIsReset: false });
+        this.setState({ current: symbol, nextIsReset: false });
       } else {
         this.setState({ current: this.state.current + symbol });
       }
@@ -75,24 +74,24 @@ class App extends Component {
       { symbol: "=", cols: 1, action: this.calculate },
     ];
     return (
-      <div className="App">
-        {this.state.previous.length > 0 ? (
-          <div className="previous-result">
-            {this.state.previous}
-          </div>
-        ) : null}
-        <input type="text" className="result" value={this.state.current} />
+      <div className="app">
+        <div className="container">
+          {this.state.previous.length > 0 ? (
+            <div className="previous-result">{this.state.previous}</div>
+          ) : null}
+          <input type="text" className="result" value={this.state.current} />
 
-        {buttons.map((btn, i) => {
-          return (
-            <Button
-              key={i}
-              symbol={btn.symbol}
-              cols={btn.cols}
-              action={(symbol) => btn.action(symbol)}
-            />
-          );
-        })}
+          {buttons.map((btn, i) => {
+            return (
+              <Button
+                key={i}
+                symbol={btn.symbol}
+                cols={btn.cols}
+                action={(symbol) => btn.action(symbol)}
+              />
+            );
+          })}
+        </div>
       </div>
     );
   }
