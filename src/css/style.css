@@ -28,7 +28,7 @@ border:2px ridge rgb(202, 188, 188);
 
 input.result {
   height: 100px;
-  width: auto;
+  width: 100%;
   border: none;
   text-align: right;
   font-size: 32px;
